@@ -22,6 +22,8 @@ const connect = async()=>{
   }
 };
 
+app.use(express.json());
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
@@ -29,8 +31,6 @@ app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messagRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/reviews", reviewRoute);
-
-
 
 app.listen(8800, ()=>{
   connect();
