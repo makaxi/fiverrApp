@@ -34,6 +34,13 @@ app.use("/api/messages", messagRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/reviews", reviewRoute);
 
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong";
+
+  return res.status(errorStatus).send(errorMessage);
+});
+
 app.listen(8800, ()=>{
   connect();
   console.log('Backend server is running');
