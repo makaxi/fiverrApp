@@ -20,7 +20,7 @@ const conversationSchema = new Schema({
     required: true,
   },
   readByBuyer:{
-    type: String,
+    type: Boolean,
     required: true,
   },
   lastMessage:{
